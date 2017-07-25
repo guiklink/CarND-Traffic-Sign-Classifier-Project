@@ -61,7 +61,7 @@ Here is an example of a traffic sign after grayscaling.
 Normalizing the data is a good practice because it keeps [numerical stability](http://mathworld.wolfram.com/NumericalStability.html) of the algorithm and having features with a 0 mean and equal variance gives a **Well Conditioned Problem** for the optimizer. The normalization formula is diplayed bellow.
 
 ```math
-pixel_value - 128 / 128
+normalized_value = pixel_value - 128 / 128
 ```
 
 
