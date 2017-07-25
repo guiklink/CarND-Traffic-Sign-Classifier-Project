@@ -18,10 +18,15 @@ The goals / steps of this project are the following:
 [img_vis_train]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/data_visualization/train.png "Visualization: Train Data"
 [img_vis_val]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/data_visualization/validation.png "Visualization: Validation Data"
 [img_gray]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_images/stopGrayscale.png "Grayscale"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[img_original]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_images/original.png "Original"
+[img_modified]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_images/modified.png "Modified"
+[img_70]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/70input.jpg "70 Km/h"
+[img_rwork]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/childrenInput.jpg "Children Crossing"
+[img_dc]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/doublecurveInput.jpg "Double Curve"
+[img_child]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/roadworkInput.jpg "Road Work"
+[img_round]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/roundaboutInput.jpg "Roundabout"
+[img_stop]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/stopInput.jpg "Stop"
+[img_sor]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/RandomSigns/straighorrightInput.jpg "Go straight or right"
 
 
 ### Data Set Summary & Exploration
@@ -47,7 +52,7 @@ In the bar charts bellow the X-axis show the code for the class (the meaning of 
 
 ####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because first it decreases the amount of data being managed by a a factor of 2 (the images goes from 32x32x3 to 32x32x1). Second, I found out that using gray images leads to a better model accuracy, what was also seem in this [article]() by Pierre Sermanet and Yann LeCun. I suppose it is somewhat intuitive that colors are not important for this aplication, by eye we can identify the signs with color as well as in grayscale.  
+As a first step, I decided to convert the images to grayscale because first it decreases the amount of data being managed by a a factor of 2 (the images goes from 32x32x3 to 32x32x1). Second, I found out that using gray images leads to a better model accuracy, what was also seem in this [article](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) by Pierre Sermanet and Yann LeCun. I suppose it is somewhat intuitive that colors are not important for this aplication, by eye we can identify the signs with color as well as in grayscale.  
 
 Here is an example of a traffic sign after grayscaling.
 
@@ -56,7 +61,7 @@ Here is an example of a traffic sign after grayscaling.
 Normalizing the data is a good practice because it keeps [numerical stability](http://mathworld.wolfram.com/NumericalStability.html) of the algorithm and having features with a 0 mean and equal variance gives a **Well Conditioned Problem** for the optimizer. The normalization formula is diplayed bellow.
 
 ```math
-a + b = c
+pixel_value - 128 / 128
 ```
 
 
@@ -64,8 +69,8 @@ By generating adittional data I was able to boost the quality of the model. Adit
 
 Here is an example of an original image and an augmented image:
 
-![alt text][image3]
-![alt text][image3]
+![alt text][img_original]
+![alt text][img_modified]
 
 
 ##### The difference between the original data set and the augmented data set
@@ -115,7 +120,7 @@ My final model results were:
 
 #### Speed limit (70km/h)
 
-![alt text][image8]
+![alt text][img_70]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -128,7 +133,7 @@ My final model results were:
 
 #### Children crossing
 
-![alt text][image8]
+![alt text][img_child]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -141,7 +146,7 @@ My final model results were:
 
 #### Road work
 
-![alt text][image8]
+![alt text][img_rwork]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -154,7 +159,7 @@ My final model results were:
 
 #### Stop
 
-![alt text][image8]
+![alt text][img_stop]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -167,7 +172,7 @@ My final model results were:
 
 #### Double curve
 
-![alt text][image8]
+![alt text][img_dc]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -180,7 +185,7 @@ My final model results were:
 
 #### Go straight or right
 
-![alt text][image8]
+![alt text][img_sor]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -193,7 +198,7 @@ My final model results were:
 
 #### Roundabout mandatory
 
-![alt text][image8]
+![alt text][img_round]
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -205,4 +210,3 @@ My final model results were:
 
 
 The model seems to work very well for the images selected other than the "Children Crossing" image, which accordingly to the prediction has a 25% chance of being "Bicycles crossing". The could be a raction of many factors as the lack of smaller amount of "Children Crossing" provided for training the model when comparing to the other classes as well to the fact that these two classes seems to have a lot of pixels in common.
-
