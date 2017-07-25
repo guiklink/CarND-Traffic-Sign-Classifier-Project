@@ -1,10 +1,5 @@
 # **Traffic Sign Recognition** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
 
 **Build a Traffic Sign Recognition Project**
 
@@ -19,24 +14,15 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
+[img_vis_test]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/data_visualization/test.png "Visualization: Test Data"
+[img_vis_train]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/data_visualization/train.png "Visualization: Train Data"
+[img_vis_val]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/data_visualization/validation.png "Visualization: Validation Data"
+[img_gray]: https://github.com/guiklink/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_images/stopGrayscale.png "Grayscale"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
-## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
-
----
-###Writeup / README
-
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
@@ -55,7 +41,7 @@ signs data set:
 
 In the bar charts bellow the X-axis show the code for the class (the meaning of the codes can be found here) and the Y-axis is the amount of images for that class. It is paramount for a good training/testing/validation that the distribution of the image classes follows the same pattern. 
 
-![alt text][image1]
+![alt text][img_vis_train]![alt text][img_vis_test]![alt text][img_vis_val]
 
 ### Design and Test a Model Architecture
 
@@ -63,9 +49,9 @@ In the bar charts bellow the X-axis show the code for the class (the meaning of 
 
 As a first step, I decided to convert the images to grayscale because first it decreases the amount of data being managed by a a factor of 2 (the images goes from 32x32x3 to 32x32x1). Second, I found out that using gray images leads to a better model accuracy, what was also seem in this [article]() by Pierre Sermanet and Yann LeCun. I suppose it is somewhat intuitive that colors are not important for this aplication, by eye we can identify the signs with color as well as in grayscale.  
 
-Here is an example of a traffic sign image before and after grayscaling.
+Here is an example of a traffic sign after grayscaling.
 
-![alt text][image2]
+![alt text][img_gray]
 
 Normalizing the data is a good practice because it keeps [numerical stability](http://mathworld.wolfram.com/NumericalStability.html) of the algorithm and having features with a 0 mean and equal variance gives a **Well Conditioned Problem** for the optimizer. The normalization formula is diplayed bellow.
 
